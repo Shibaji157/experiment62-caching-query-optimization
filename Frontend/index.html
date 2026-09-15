@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 6.2 - Caching & Query Optimization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Experiment 6.2</h1>
+            <p>Caching & Query Optimization using Spring Boot</p>
+        </header>
+
+        <!-- Add User -->
+        <section class="card">
+            <h2>Add User</h2>
+
+            <form id="userForm">
+
+                <div class="form-grid">
+
+                    <div>
+                        <label for="uid">UID</label>
+                        <input
+                            type="text"
+                            id="uid"
+                            placeholder="E20454"
+                            required>
+                    </div>
+
+                    <div>
+                        <label for="name">Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Lovleen Kaur"
+                            required>
+                    </div>
+
+                    <div>
+                        <label for="city">City</label>
+                        <input
+                            type="text"
+                            id="city"
+                            placeholder="Rupnagar"
+                            required>
+                    </div>
+
+                    <div>
+                        <label for="country">Country</label>
+                        <input
+                            type="text"
+                            id="country"
+                            placeholder="India"
+                            required>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="primary-btn">
+                    Add User
+                </button>
+
+            </form>
+
+            <p id="message"></p>
+        </section>
+
+
+        <!-- Query Operations -->
+        <section class="card">
+
+            <h2>Query Operations</h2>
+
+            <div class="button-grid">
+
+                <button onclick="loadUsers('normal')">
+                    Normal Query
+                </button>
+
+                <button onclick="loadUsers('optimized')">
+                    Optimized Query
+                </button>
+
+                <button onclick="loadUsers('cached')">
+                    Cached Query
+                </button>
+
+                <button onclick="loadUsers('native')">
+                    Native SQL
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Sorting -->
+        <section class="card">
+
+            <h2>Sorting</h2>
+
+            <div class="button-grid">
+
+                <button onclick="loadUsers('sort/id')">
+                    Sort by ID
+                </button>
+
+                <button onclick="loadUsers('sort/name')">
+                    Sort by Name
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Users -->
+        <section class="card">
+
+            <div class="table-header">
+
+                <div>
+                    <h2>Users</h2>
+                    <p id="queryInfo">
+                        Click a query button to load users.
+                    </p>
+                </div>
+
+                <button onclick="clearTable()" class="secondary-btn">
+                    Clear
+                </button>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>UID</th>
+                            <th>Name</th>
+                            <th>City</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="userTableBody">
+
+                        <tr>
+                            <td colspan="5" class="empty">
+                                No users loaded
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
